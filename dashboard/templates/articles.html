@@ -1,0 +1,53 @@
+{% extends "nav.html" %}
+{% block dashboard_base %}
+{% load static %}
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <a href="{% url "new_article" %}"
+                        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-plus fa-sm text-white-50"></i>Ajouter un Article au Blog</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 stretch-card grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title mb-0">Liste des articles publiés</p>
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-bottom">ID</th>
+                                                <th class="border-bottom">Titre</th>
+                                                <th class="border-bottom">Extrait</th>
+                                                <th class="border-bottom">Date de publication</th>
+                                                <th class="border-bottom">Image</th>
+                                                <th class="border-bottom">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for article in articles %}
+                                            <tr>
+                                                <td> {{article.id}} </td>
+                                                <td> {{article.titre}} </td>
+                                                <td> {{article.extrait}} </td>
+                                                <td> {{article.date}} </td>
+                                                <td><img class="image-thumbnail" src="../../{{article.image}}" alt=""></td>
+                                                <td class="d-flex">
+                                                    <a class="d-none m-2 d-sm-inline-block btn btn-sm btn-warning shadow-sm" href="{% url "edit_article" article.id%}"><i class="mdi mdi-border-color"></i></a>
+                                                    <a href="{% url "delete_article" article.id%}" class="d-none m-2 d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i class="mdi mdi-cup-off"></i></a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+            {% endblock dashboard_base %}

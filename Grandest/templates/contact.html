@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+{% block content %}
+  {% load static %}
+
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({% static 'img/carousel2.png)' %};">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+        <h2>Contact</h2>
+        <ol>
+          <li>
+            <a href="{% url "home" %}">Home</a>
+          </li>
+          <li>Contact</li>
+        </ol>
+      </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-map"></i>
+              <h3>Adresse</h3>
+              <p>8 Route de Strasbourg 67960 ENTZHEIM</p>
+            </div>
+          </div>
+          <!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p>contact@location-benne-grandest.com</p>
+            </div>
+          </div>
+          <!-- End Info Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-item d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-telephone"></i>
+              <h3>Contactez-nous au</h3>
+              <p>+33 0678755917</p>
+            </div>
+          </div>
+          <!-- End Info Item -->
+        </div>
+
+        <div class="row gy-4 mt-1">
+          <div class="col-lg-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2642.0994964296!2d7.628081475505846!3d48.531324923668684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796b43978d6649b%3A0xdb202ddd4486a113!2s8%20Rte%20de%20Strasbourg%2C%2067960%20Entzheim%2C%20France!5e0!3m2!1sfr!2srw!4v1721215042650!5m2!1sfr!2srw" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+          </div>
+          <!-- End Google Maps -->
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row gy-4">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" placeholder="Votre Nom" />
+                    <label for="name">Votre Nom</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="Votre Email" />
+                    <label for="email">Votre Email</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="subject" placeholder="Objet de votre message" />
+                    <label for="subject">Sujet</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Saisissez votre message ici" id="message" style="height: 100px"></textarea>
+                    <label for="message">Message</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary w-100 py-3" type="submit">Envoyer</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- End Contact Form -->
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+  </main>
+  <!-- End #main -->
+{% endblock %}

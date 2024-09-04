@@ -1,0 +1,52 @@
+{% extends "nav.html" %}
+{% block dashboard_base %}
+{% load static %}
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-12 stretch-card grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title mb-0">Liste des Commentaires</p>
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-bottom">ID</th>
+                                                <th class="border-bottom">Article</th>
+                                                <th class="border-bottom">Auteur</th>
+                                                <th class="border-bottom">Date & Heure</th>
+                                                <th class="border-bottom">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($comments as $comment)
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    @foreach ($articles as $article)
+                                                       
+                                                    @endforeach
+                                                </td>
+                                                <td>
+                                                    @foreach ($users as $user)
+                                                        
+                                                    @endforeach
+                                                </td>
+                                                <td></td>
+                                                <td class="d-flex">
+                                                    <a href="" class="d-none m-2 d-sm-inline-block btn btn-sm btn-danger shadow-sm"><i class="mdi mdi-cup-off"></i></a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        @endsection

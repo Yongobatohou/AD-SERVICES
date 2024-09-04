@@ -1,0 +1,79 @@
+{% extends "nav.html" %}
+{% block dashboard_base %}
+{% load static %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold">Bienvenue </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 grid-margin transparent">
+              <div class="row">
+                <div class="col-md-3 stretch-card transparent">
+                  <div class="card card-tale">
+                    <div class="card-body">
+                      <p class="mb-4">Total utilisateurs inscrit</p>
+                      <p class="fs-30 mb-2"> {{user}} </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 stretch-card transparent">
+                  <div class="card card-dark-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Total Articles publiés</p>
+                      <p class="fs-30 mb-2"> {{article}} </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 stretch-card transparent">
+                  <div class="card card-light-blue">
+                    <div class="card-body">
+                      <p class="mb-4">Total demandes</p>
+                      <p class="fs-30 mb-2"> {{demande}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 stretch-card grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title mb-0">Liste des Comptes admins</p>
+                  <div class="table-responsive">
+                    <table class="table table-borderless">
+                      <thead>
+                        <tr>
+                          <th class="border-bottom">ID</th>
+                          <th class="border-bottom">Nom et Prenom(s)</th>
+                          <th class="border-bottom">Email</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        {% for user in users %}
+                        <tr>
+                            <td>{{user.id}}</td>
+                            <td> {{user.username}} </td>
+                            <td> {{user.email}} </td>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+
+        {% endblock dashboard_base %}

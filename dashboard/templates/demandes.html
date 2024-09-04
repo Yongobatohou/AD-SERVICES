@@ -1,0 +1,55 @@
+{% extends "nav.html" %}
+{% block dashboard_base %}
+{% load static %}
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-md-12 stretch-card grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title mb-0">Liste des demandes d'adhesions reçu</p>
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-bottom">ID</th>
+                                                <th class="border-bottom">Nom</th>
+                                                <th class="border-bottom">Prenom(s)</th>
+                                                <th class="border-bottom">Email</th>
+                                                <th class="border-bottom">Contact</th>
+                                                <th class="border-bottom">Cubage</th>
+                                                <th class="border-bottom">Durée</th>
+                                                <th class="border-bottom">Lieu de livraison</th>
+                                                <th class="border-bottom">Type de déchet</th>
+                                                <th class="border-bottom">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for demande in demandes %}
+                                            <tr>
+                                                <td> {{demande.id}} </td>
+                                                <td> {{demande.nom}} </td>
+                                                <td> {{demande.prenom}} </td>
+                                                <td> {{demande.email}} </td>
+                                                <td> {{demande.contact}} </td>
+                                                <td> {{demande.cubage}} </td>
+                                                <td> {{demande.duree}} </td>
+                                                <td> {{demande.lieu}} </td>
+                                                <td> {{demande.type_d}} </td>
+                                                <td class="d-flex">
+                                                    <a href="{% url "read_demande" demande.id %}" class="d-none m-2 d-sm-inline-block btn btn-sm btn-warring shadow-sm"><i class="mdi mdi-border-color"></i></a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+            {% endblock dashboard_base %}

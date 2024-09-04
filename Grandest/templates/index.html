@@ -1,0 +1,676 @@
+{% extends "layout.html" %}
+{% block content %}
+{% load static %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero">
+
+    <div class="info d-flex align-items-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 data-aos="fade-down">Bienvenue chez <br> <span>AD-SERVICES</span></h2>
+            <p data-aos="fade-up">Simplifiez-vous la vie ! Louez une benne en quelques clics. Livraison rapide et tarifs compétitifs.</p>
+            <a data-aos="fade-up" data-aos-delay="200" href="#get-started" class="btn-get-started">Demandez votre devis gratuitement</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <div class="carousel-item active" style="background-image: url({% static "img/carousel1.png" %})">
+      </div>
+      <div class="carousel-item" style="background-image: url({% static "img/carousel2.png" %})"></div>
+
+      <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Get Started Section ======= -->
+    <section id="get-started" class="get-started section-bg">
+      <div class="container">
+
+        <div class="row justify-content-between gy-4">
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up">
+            <div class="content ">
+              <h3>Votre benne livrée en un clin d'œil. Débarrassez-vous de vos déchets sans tracas.</h3>
+              <p>Vous aimez la simplicité ? Nous aussi ... Voici les quelques étapes necéssaires pour louer l'une de nos bennes. Et si vous avez le moindre doute, faite-nous confiance pour trouver avec vous la meilleure solution !
+                <ul style="list-style: none;">
+                  <li><i class="bi bi-check2-all"></i> Demandez votre devis gratuit.</li>
+                  <li><i class="bi bi-check2-all"></i> Votre benne est installée.</li>
+                  <li><i class="bi bi-check2-all"></i> Vous y jetez vos déchets.</li>
+                  <li><i class="bi bi-check2-all"></i> Nous récupérons la benne et convoyons les déchets pour recyclage.</li> 
+                </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-5" data-aos="fade">
+            <form action="{% url "do_demande" %}" method="post" enctype="multipart/form-data" class="php-email-form">
+              {% csrf_token %}
+                <h3>Demandez votre Devis gratuit</h3>
+                <p>Contactez-nous par téléphone, par email ou en utilisant notre demande de devis en ligne. Vous obtiendrez rapidement un tarif et tous les conseils adaptés à vos besoins.</p>
+                <div class="row g-3">
+                  <div class="col-12 col-sm-6">
+                    <input type="text" name="nom" class="form-control border-0" placeholder="Votre Nom" style="height: 55px;" />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input type="text" name="prenom" class="form-control border-0" placeholder="Votre prenom" style="height: 55px;" />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input type="email" name="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input type="tel" name="contact" class="form-control border-0" placeholder="Votre Téléphone" style="height: 55px;" />
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <select name="cubage" aria-placeholder="Selectionnez un cubage" class="form-control border-0" style="height: 55px;">
+                      <option selected>Selectionnez un cubage</option>
+                      <option value="3">3 m <sup>3</sup></option>
+                      <option value="8">8 m <sup>3</sup></option>
+                      <option value="10">10 m <sup>3</sup></option>
+                      <option value="15">15 m <sup>3</sup></option>
+                      <option value="20">20 m <sup>3</sup></option>
+                      <option value="30">30 m <sup>3</sup></option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input type="text" name="duree" class="form-control border-0 datetimepicker-input" placeholder="Durée de location en heure (h)" style="height: 55px;" />
+                  </div>
+                  <div class="col-12">
+                      <input type="text" name="lieu" class="form-control border-0 datetimepicker-input" placeholder="Lieu de livraison" style="height: 55px;" />
+                  </div>
+                  <div class="col-12">
+                    <input type="text" name="type" class="form-control border-0 datetimepicker-input" placeholder="Type de déchets" style="height: 55px;" />
+                  </div>
+                  <div class="col-12">
+                    <textarea class="form-control border-0" name="demande" placeholder="Autres précisions utile"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-secondary w-100 py-3" type="submit">Envoyer votre demande</button>
+                  </div>
+                </div>
+              </form>
+          </div><!-- End Quote Form -->
+
+        </div>
+
+      </div>
+    </section><!-- End Get Started Section -->
+
+    <!-- ======= Constructions Section ======= -->
+    <section id="constructions" class="constructions">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>ECO-RESPONSABILITÉ</h2>
+          <p>Nous oeuvrons pour la protection de notre environnement en prenant le soins de recycler tous les déchets que nos réccupérons dans nos bennes.</p>
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-12" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-item">
+              <div class="row">
+                <div class="col-xl-5">
+                  <div class="card-bg" style="background-image: url({% static "img/eco_responsabilite.svg" %});"></div>
+                </div>
+                <div class="col-xl-7 d-flex align-items-center">
+                  <div class="card-body">
+                    <h4 class="card-title">UN GESTE POUR L'ENVIRONNEMENTt</h4>
+                    <p>Après la collecte de vos déchets et encombrants, ils sont triés, lavés, conditionnés puis acheminés vers des centres de traitement adaptés. Cela permet de minimiser le volume de déchets destiné aux déchetteries et de favoriser la réutilisation des matériaux recyclables dans leur filières respectives.</p>
+                      <p>Soyez un vrai ECO-CITOYEN en souscrivant à nos services pour le traitement de vos déchets</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Card Item -->
+
+        </div>
+
+      </div>
+    </section><!-- End Constructions Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item  position-relative">
+              <div class="icon">
+                <i class="fa-solid fa fa-credit-card"></i>
+              </div>
+              <h3>ECONOMIE</h3>
+              <p>Louez une benne et réduisez ves coûts de transport en vous débarrassant en une seule fois d'une grande quantité de déchets.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-solid fa fa-handshake"></i>
+              </div>
+              <h3>EFFICACITÉ</h3>
+              <p>Gagnez du temps et vous facilitez la vie en faisant livrer votre benne directement à l’endroit où sont vos déchets.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <i class="fa-solid fa fa-bed"></i>
+              </div>
+              <h3>TRANQUILITÉ</h3>
+              <p>Assurez-vous que vos déchets suivent les filières de recyclage adaptées en respectant les normes environnementales.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Alt Services Section ======= -->
+    <section id="alt-services" class="alt-services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-around gy-4">
+          <div class="col-lg-6 img-bg" style="background-image: url({% static 'img/ad service 18.jpg' %});" data-aos="zoom-in"
+            data-aos-delay="100"></div>
+
+          <div class="col-lg-5 d-flex flex-column justify-content-center">
+            <h3>AD SERVICES La référence en matière de location de bennes dans tous le Grand-EST</h3>
+            <p>Nous mettons en location 51 bennes différentes. De la mini-benne à la benne géante, en passant par les bennes à déchets ou à gravats, nous sommes en mesure de répondre à vos besoins spécifiques.</p>
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="100">
+              <i class="bi bi-easel flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Demandez votre devis gratuit</a></h4>
+                <p>Contactez-nous par téléphone, par email ou en utilisant notre demande de devis en ligne. Vous obtiendrez rapidement un tarif et tous les conseils adaptés à vos besoins.</p>
+              </div>
+            </div><!-- End Icon Box -->
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-patch-check flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Votre benne est installée</a></h4>
+                <p>La benne est déposée chez vous ou sur votre chantier. Pensez à préciser lors de votre demande si il y a des conditions particulières d'accès au lieu de pose.</p>
+              </div>
+            </div><!-- End Icon Box -->
+
+            <div class="icon-box d-flex position-relative" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-brightness-high flex-shrink-0"></i>
+              <div>
+                <h4><a href="" class="stretched-link">Vous y jetez vos déchets et nous récupérons la benne une fois le délaie épuisé</a></h4>
+                <p>Vous n'avez plus qu'à jeter dans votre benne les déchets et encombrants dont vous souhaitez vous débarrasser. Une fois le travail terminée, notre chauffeur revient collecter la benne selon vos besoins et disponibilités. Vos déchets et encombrants partent ensuite en centre de recyclage.</p>
+              </div>
+            </div><!-- End Icon Box -->
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Alt Services Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <ul class="nav nav-tabs row  g-2 d-flex">
+
+          <li class="nav-item col-3">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+              <h4>Location Express</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+          <li class="nav-item col-3">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
+              <h4>Location Benne à Gravas</h4>
+            </a><!-- End tab nav item -->
+
+          <li class="nav-item col-3">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
+              <h4>Location Benne à Déchets</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+          <li class="nav-item col-3">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
+              <h4>Devis Gratuit</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+        </ul>
+
+        <div class="tab-content">
+
+          <div class="tab-pane active show" id="tab-1">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
+                data-aos="fade-up" data-aos-delay="100">
+                <h3>L'offre idéale pour les gens pressés</h3>
+                <p class="fst-italic">
+                  Le principe est simple et reprend celui de la location de nos bennes à la différence près que la location s'adapte à votre temps. Par demi-journée ou journée complète.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> Nous livrons votre benne et la déposons.</li>
+                  <li><i class="bi bi-check2-all"></i> Le chauffeur reste présent le temps que vous vous débarassiez de vos déchets et/ou encombrants.</li>
+                  <li><i class="bi bi-check2-all"></i> Une fois terminé, la benne reprend la route aussi vite qu'elle est arrivée.</li>
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <img src="{% static 'img/ad service 12.jpg' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+          <div class="tab-pane" id="tab-2">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Benne pour l'évacuation de gravats</h3>
+                <p class="fst-italic">
+                  Vous êtes à la recherche d’une benne pour l’évacuation de gravats sur Strasbourg ?
+                </p>
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> Suite à un chantier, une démolition, nous vous proposons une solution efficace et écoresponsable pour évacuer vos gravats : la location de bennes. Notre entreprise de location de benne à Strasbourg, s’occupe de la livraison de vos bennes à domicile ou sur site.</li>
+                  <li><i class="bi bi-check2-all"></i> Grâce à votre location de benne gravats vous pourrez stocker des gravats non stabilisés comme des décombres, des débris de démolition mélangés, du placoplâtre, du béton, du verre… mais également de la Terre, du bois, des métaux ferreux, du polystyrène…</li>
+                  <li><i class="bi bi-check2-all"></i> Obtenez dès maintenant votre devis gratuit pour une location de benne gravats en cliquant ici. <a href="">Devis gratuit</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="{% static 'img/ad service 16.jpg' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+          <div class="tab-pane" id="tab-3">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Benne pour l'évacuation de déchets</h3>
+                <p> Vous souhaitez vous débarrasser de déchets divers et d’encombrants ?</p>
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> Notre entreprise de location de benne à Strasbourg, vous propose à la location des bennes à déchets sur la région de Strasbourg (67).</li>
+                  <li><i class="bi bi-check2-all"></i>  Si vous désirez obtenir un chantier propre, que vous souhaitez toujours savoir où vous en êtes dans le cours de vos travaux, la location d’une benne à déchets est pour vous la solution idéale.</li>
+                  <li><i class="bi bi-check2-all"></i> Nous disposons de bennes ouvertes, de bennes fermées, de compacteurs poste fixe, de compacteurs monobloc et la location de camion benne à ordures ménagères avec chauffeur pour des interventions ponctuelles.</li>
+                </ul>
+                <p class="fst-italic">
+                  <a href="">Obtenez dès maintenant votre devis gratuit pour une location de benne déchets.</a>
+                </p>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="{% static 'img/ad service 22.jpg' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+          <div class="tab-pane" id="tab-4">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                <h3>Demandez un devis gratuit</h3>
+                <p class="fst-italic">
+                  Vous avez des doutes sur ce que pourrais vous coûter la location de l'une de nos bennes??
+                </p>
+                <p>
+                  N'ayez crainte, vous pouvez demander un devis totalement gratuit afin d'être fixer et de faire votre choix de benne.
+                </p>
+                <p>
+                  Contactez-nous par téléphone, par email ou en utilisant notre demande de devis en ligne. Vous obtiendrez rapidement un tarif et tous les conseils adaptés à vos besoins
+                </p>
+                <a href="" class="btn btn-primary py-3 px-5 mt-3">Demander votre devis<i class="fa fa-arrow-right ms-3"></i></a>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="{% static "img/ad service 28.jpg" %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div><!-- End tab content item -->
+
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Our Projects Section ======= -->
+    <section id="projects" class="projects">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Nos Réalisations</h2>
+          <p>Images de nos dernières réalisations pour nos chers clients.</p>
+        </div>
+
+        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+          data-portfolio-sort="original-order">
+
+          <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/img1.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/img1.jpg" %}" 
+                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/img2.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/img2.jpg" %}" 
+                    data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/img3.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/img3.jpg" %}"  data-gallery="portfolio-gallery-repairs"
+                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/img4.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/img4.jpg" %}" data-gallery="portfolio-gallery-book"
+                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/img5.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/img5.jpg" %}" 
+                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/img6.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/img6.jpg" %}" 
+                    data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/img7.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/img7.jpg" %}" data-gallery="portfolio-gallery-repairs"
+                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/ad service 1.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/ad service 1.jpg" %}" data-gallery="portfolio-gallery-book"
+                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/ad service 2.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/ad service 2.jpg" %}" 
+                    data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/ad service 1.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/ad service 1.jpg" %}" 
+                    data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/ad service 4.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/ad service 4.jpg" %}" data-gallery="portfolio-gallery-repairs"
+                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item filter-design">
+              <div class="portfolio-content h-100">
+                <img src="{% static "img/ad service 5.jpg" %}" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="{% static "img/ad service 5.jpg" %}"  data-gallery="portfolio-gallery-book"
+                    class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                  
+                </div>
+              </div>
+            </div><!-- End Projects Item -->
+
+          </div><!-- End Projects Container -->
+
+        </div>
+
+      </div>
+    </section><!-- End Our Projects Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Témoignages</h2>
+          <p>Des mots qui parlent d'eux-mêmes. Découvrez les témoignages de nos clients satisfaits.</p>
+        </div>
+
+        <div class="slides-2 swiper">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static "img/testimonials/testimonials-1.jpg" " %}class="testimonial-img" alt="">
+                  <h3>Saul Goodman</h3>
+                  <h4>Ceo &amp; Founder</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
+                    Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                  <h3>Sara Wilsson</h3>
+                  <h4>Designer</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis
+                    quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                  <h3>Jena Karlis</h3>
+                  <h4>Store Owner</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                    tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                  <h3>Matt Brandon</h3>
+                  <h4>Freelancer</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                    minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                  <h3>John Larson</h3>
+                  <h4>Entrepreneur</h4>
+                  <div class="stars">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  </div>
+                  <p>
+                    <i class="bi bi-quote quote-icon-left"></i>
+                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
+                    culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum
+                    quid.
+                    <i class="bi bi-quote quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+      <div class="container" data-aos="fade-up">
+        <div class=" section-header">
+          <h2>Derniers Posts de notre Blog</h2>
+          <p>Découvrez nos derniers articles pour tout savoir sur nos dernières réalisations et sur la protection de l'environnement à travers le recyclage de déchets</p>
+        </div>
+
+        <div class="row gy-5">
+
+          {% for article in articles %}
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="post-item position-relative h-100">
+
+              <div class="post-img position-relative overflow-hidden">
+                <img src="{{ article.image.url }}" class="img-fluid" alt="">
+                <span class="post-date">{{ article.date }}</span>
+              </div>
+
+              <div class="post-content d-flex flex-column">
+
+                <h3 class="post-title"><a href="{% url 'news_details' article.id %}">{{ article.titre }}</a></h3>
+
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Julia Parker</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Politics</span>
+                  </div>
+                </div>
+
+                <hr>
+
+                <a href="{% url 'news_details' article.id %}" class="readmore stretched-link"><span>Lire plus</span><i
+                    class="bi bi-arrow-right"></i></a>
+
+              </div>
+
+            </div>
+          </div><!-- End post item -->
+          {% endfor %}
+
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Recent Blog Posts Section -->
+
+  </main><!-- End #main -->
+
+  {% endblock content %}

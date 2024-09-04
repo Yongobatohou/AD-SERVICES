@@ -1,0 +1,39 @@
+{% extends 'nav.html' %}
+{% block dashboard_base %}
+  {% load static %}
+
+  <!-- partial -->
+  <div class="main-panel">
+      <div class="container mt-5 w-100">
+        <div class="header d-flex">
+          <img style="width: 150px; " src="{% static 'img/logo.svg' %}" alt="AD-SERVICES Location de bennes" />
+          <h2>AD-SERVICES</h2>
+          <p>Location de Bennes - +33 0678755917 - contact@location-benne-grandest.com</p>
+        </div>
+        <div class="body">
+          <h2>Demande de devis - Location de bennes</h2>
+          <p>Bonjour,</p>
+          <p>Je suis intéressé(e) par vos services de location de bennes pour mon projet suivant:</p>
+          <ul>
+            <li>
+              Cubage de bennes: {{ demande.cubage }} m <sup>3</sup>
+            </li>
+            <li>Durée de location: {{ demande.duree }}h</li>
+            <li>Lieu de livraison: {{ demande.lieu }}.</li>
+            <li>Type de déchets: {{ demande.type_d }}.</li>
+            <li>Informations complémentaires: {{ demande.details }}.</li>
+          </ul>
+          <p>Je serais reconnaissant(e) de bien vouloir me faire parvenir un devis pour cette prestation. Vous pouvez me contacter par téléphone au {{ demande.contact }} ou par email à {{ demande.email }}.</p>
+          <p>Je vous remercie par avance de votre réponse et vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.</p>
+          <p>{{ demande.nom }} {{ demande.prenom }}</p>
+        </div>
+        <div class="footer">
+          <p>Location de Bennes - +33 0678755917 - contact@location-benne-grandest.com</p>
+          <p>
+            <a href="ad-services.com">ad-services.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
